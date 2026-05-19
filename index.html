@@ -239,7 +239,11 @@ a.project-row:hover .proj-num   { color: var(--accent); }
   padding: 28px 48px 32px;
 }
 
-.demo-inner { display: flex; flex-direction: column; gap: 16px; }
+.demo-inner {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
 
 .demo-label {
   font-size: 10px;
@@ -247,24 +251,42 @@ a.project-row:hover .proj-num   { color: var(--accent); }
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--mid);
+  margin-bottom: 16px;
 }
 
-.demo-media {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
+.demo-phone {
+  flex-shrink: 0;
+  width: 160px;
+  background: var(--ink);
+  border-radius: 24px;
+  padding: 10px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
 }
 
-.demo-gif {
-  height: 200px;
-  width: auto;
-  border-radius: 6px;
-  border: 1px solid var(--rule);
-  object-fit: cover;
+.demo-phone img {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
   display: block;
 }
 
+.demo-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+  padding-top: 4px;
+}
+
+.demo-caption {
+  font-size: 13px;
+  color: var(--mid);
+  line-height: 1.7;
+  max-width: 360px;
+}
+
 .demo-video-link {
+  display: inline-block;
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.1em;
@@ -278,7 +300,8 @@ a.project-row:hover .proj-num   { color: var(--accent); }
 
 @media (max-width: 640px) {
   .demo-strip { margin: 0 -24px; padding: 20px 24px 24px; }
-  .demo-gif { height: 140px; }
+  .demo-inner { flex-direction: column; gap: 20px; }
+  .demo-phone { width: 130px; }
 }
 
 
@@ -424,22 +447,21 @@ footer {
       <!-- Demo strip -->
       <div class="demo-strip">
         <div class="demo-inner">
-          <div class="demo-label">Demo</div>
-          <div class="demo-media">
+          <div class="demo-phone">
             <img
               src="https://raw.githubusercontent.com/Hp092/human-following-robot/main/media/videos/demo.gif"
               alt="TurtleBot 4 following a person in real time"
-              class="demo-gif"
-            />
-            <img
-              src="https://raw.githubusercontent.com/Hp092/human-following-robot/main/media/videos/YOLO.gif"
-              alt="YOLO person detection overlay"
-              class="demo-gif"
             />
           </div>
-          <a class="demo-video-link" href="https://github.com/Hp092/human-following-robot/blob/main/media/videos/MR_PROJECTVIDEO.mp4" target="_blank">
-            Watch full video ↗
-          </a>
+          <div class="demo-text">
+            <div class="demo-label">Live Demo</div>
+            <p class="demo-caption">
+              TurtleBot 4 Lite detecting and following a person in real time using YOLOv8 and a custom ROS 2 control pipeline. Recorded on real hardware in an indoor lab environment.
+            </p>
+            <a class="demo-video-link" href="https://github.com/Hp092/human-following-robot/blob/main/media/videos/MR_PROJECTVIDEO.mp4" target="_blank">
+              Watch full video ↗
+            </a>
+          </div>
         </div>
       </div>
 
