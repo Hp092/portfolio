@@ -76,7 +76,7 @@ body {
   color: var(--ink);
 }
 .hero-name em {
-  font-style: italic;
+  font-style: normal;
   color: var(--accent);
 }
 .hero-right { padding-bottom: 6px; }
@@ -222,28 +222,6 @@ body {
   border-top: 3px solid var(--accent);
   background: var(--cream);
   overflow: hidden;
-}
-.media-frame-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 7px 12px;
-  border-bottom: 1px solid var(--rule);
-  background: var(--hover);
-}
-.media-frame-label {
-  font-size: 9px;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--mid);
-}
-.media-frame-badge {
-  font-size: 9px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--accent);
 }
 .media-frame img {
   width: 100%;
@@ -443,10 +421,6 @@ footer {
 
       <div class="feat-right">
         <div class="media-frame">
-          <div class="media-frame-bar">
-            <span class="media-frame-label">Live Demo</span>
-            <span class="media-frame-badge">● Recording</span>
-          </div>
           <img
             src="https://raw.githubusercontent.com/Hp092/human-following-robot/main/media/videos/demo.gif"
             alt="TurtleBot 4 following a person in real time"
