@@ -92,9 +92,7 @@ body {
   color: var(--accent);
 }
 
-.hero-right {
-  padding-bottom: 6px;
-}
+.hero-right { padding-bottom: 6px; }
 
 .hero-role {
   font-size: 11px;
@@ -118,7 +116,6 @@ body {
   align-items: center;
   gap: 16px;
   padding: 32px 0 0;
-  margin-bottom: 0;
 }
 
 .sec-label-text {
@@ -136,7 +133,149 @@ body {
   background: var(--rule);
 }
 
-/* ── PROJECT ROWS ── */
+/* ── FEATURED PROJECT CARD ── */
+.project-featured {
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  gap: 0 56px;
+  padding: 40px 0 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.feat-left {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 40px;
+}
+
+.feat-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.feat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--mid);
+  letter-spacing: 0.1em;
+}
+
+.feat-gh {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--mid);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.feat-gh:hover { color: var(--accent); }
+
+.feat-title {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+
+.feat-desc {
+  font-size: 13px;
+  color: var(--mid);
+  line-height: 1.75;
+  font-weight: 400;
+  margin-bottom: 24px;
+  max-width: 480px;
+}
+
+.feat-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+
+.feat-tag {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--mid);
+  padding: 4px 10px;
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+}
+
+.feat-links {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  margin-top: auto;
+}
+
+.feat-link-primary {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  text-decoration: none;
+  transition: opacity 0.15s;
+}
+
+.feat-link-primary:hover { opacity: 0.7; }
+
+.feat-link-secondary {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--mid);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.feat-link-secondary:hover { color: var(--ink); }
+
+/* ── PHONE FRAME ── */
+.feat-right {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.phone-frame {
+  width: 220px;
+  background: var(--ink);
+  border-radius: 36px;
+  padding: 12px;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.22), 0 2px 8px rgba(0,0,0,0.12);
+  position: relative;
+}
+
+.phone-frame::before {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 6px;
+  background: #2a2a2a;
+  border-radius: 3px;
+  margin: 0 auto 10px;
+}
+
+.phone-frame img {
+  width: 100%;
+  height: auto;
+  border-radius: 24px;
+  display: block;
+}
+
+/* ── PLAIN PROJECT ROWS ── */
 .projects { margin-top: 0; }
 
 .project-row {
@@ -149,9 +288,7 @@ body {
   text-decoration: none;
   color: inherit;
   transition: background 0.2s;
-  border-radius: 0;
   cursor: pointer;
-  position: relative;
 }
 
 a.project-row:hover {
@@ -167,7 +304,6 @@ a.project-row:hover .proj-num   { color: var(--accent); }
 .project-row.placeholder {
   opacity: 0.35;
   pointer-events: none;
-  cursor: default;
 }
 
 .proj-num {
@@ -180,46 +316,20 @@ a.project-row:hover .proj-num   { color: var(--accent); }
   user-select: none;
 }
 
-.proj-body { display: flex; flex-direction: column; gap: 10px; }
+.proj-body { display: flex; flex-direction: column; gap: 8px; }
 
 .proj-title {
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 600;
   letter-spacing: -0.02em;
   line-height: 1.2;
   color: var(--ink);
 }
 
-.proj-meta {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
 .proj-desc {
   font-size: 12px;
   color: var(--mid);
-  font-weight: 400;
   line-height: 1.6;
-  max-width: 540px;
-}
-
-.proj-tags {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-.proj-tag {
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--mid);
-  padding: 3px 8px;
-  border: 1px solid var(--rule);
-  border-radius: 2px;
 }
 
 .proj-arrow {
@@ -231,87 +341,13 @@ a.project-row:hover .proj-num   { color: var(--accent); }
   flex-shrink: 0;
 }
 
-/* ── DEMO STRIP ── */
-.demo-strip {
-  border-bottom: 1px solid var(--rule);
-  background: var(--hover);
-  margin: 0 -48px;
-  padding: 28px 48px 32px;
-}
-
-.demo-inner {
-  display: flex;
-  gap: 40px;
-  align-items: flex-start;
-}
-
-.demo-label {
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--mid);
-  margin-bottom: 16px;
-}
-
-.demo-phone {
-  flex-shrink: 0;
-  width: 160px;
-  background: var(--ink);
-  border-radius: 24px;
-  padding: 10px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
-}
-
-.demo-phone img {
-  width: 100%;
-  height: auto;
-  border-radius: 16px;
-  display: block;
-}
-
-.demo-text {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 12px;
-  padding-top: 4px;
-}
-
-.demo-caption {
-  font-size: 13px;
-  color: var(--mid);
-  line-height: 1.7;
-  max-width: 360px;
-}
-
-.demo-video-link {
-  display: inline-block;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--accent);
-  text-decoration: none;
-  transition: opacity 0.15s;
-}
-
-.demo-video-link:hover { opacity: 0.7; }
-
-@media (max-width: 640px) {
-  .demo-strip { margin: 0 -24px; padding: 20px 24px 24px; }
-  .demo-inner { flex-direction: column; gap: 20px; }
-  .demo-phone { width: 130px; }
-}
-
-
+/* ── SKILLS ── */
 .skills-section { padding: 32px 0 0; }
 
 .skills-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   border-top: 1px solid var(--rule);
-  margin-top: 0;
 }
 
 .skill-col {
@@ -319,9 +355,9 @@ a.project-row:hover .proj-num   { color: var(--accent); }
   border-right: 1px solid var(--rule);
 }
 
-.skill-col:last-child { border-right: none; padding-left: 32px; }
+.skill-col:last-child  { border-right: none; padding-left: 32px; }
 .skill-col:first-child { padding-right: 32px; }
-.skill-col:nth-child(2) { padding-left: 32px; padding-right: 32px; }
+.skill-col:nth-child(2){ padding-left: 32px; padding-right: 32px; }
 
 .skill-col-title {
   font-size: 10px;
@@ -332,11 +368,7 @@ a.project-row:hover .proj-num   { color: var(--accent); }
   margin-bottom: 18px;
 }
 
-.skill-items {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
+.skill-items { display: flex; flex-direction: column; gap: 10px; }
 
 .skill-item {
   font-size: 13px;
@@ -363,10 +395,7 @@ footer {
   color: var(--mid);
 }
 
-.footer-links {
-  display: flex;
-  gap: 28px;
-}
+.footer-links { display: flex; gap: 28px; }
 
 .footer-links a {
   font-size: 11px;
@@ -381,6 +410,12 @@ footer {
 .footer-links a:hover { color: var(--ink); }
 
 /* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .project-featured { grid-template-columns: 1fr; }
+  .feat-right { justify-content: flex-start; padding-bottom: 40px; }
+  .phone-frame { width: 180px; }
+}
+
 @media (max-width: 640px) {
   .wrap { padding: 0 24px; }
   .hero { grid-template-columns: 1fr; }
@@ -426,45 +461,48 @@ footer {
       <div class="sec-label-line"></div>
     </div>
 
-    <div class="projects">
+    <!-- Project 01 — featured card -->
+    <div class="project-featured">
 
-      <a class="project-row" href="https://github.com/Hp092/human-following-robot" target="_blank">
-        <div class="proj-num">01</div>
-        <div class="proj-body">
-          <div class="proj-title">Autonomous Human-Following Mobile Robot</div>
-          <div class="proj-desc">Vision-based person-following robot on a TurtleBot 4 Lite. Uses YOLOv8 for real-time detection, a custom 4-node ROS 2 pipeline, Kalman filtering, and a safety supervisor. Maintains ~1 m following distance with obstacle avoidance.</div>
-          <div class="proj-tags">
-            <span class="proj-tag">Python</span>
-            <span class="proj-tag">ROS 2</span>
-            <span class="proj-tag">YOLOv8</span>
-            <span class="proj-tag">OpenCV</span>
-            <span class="proj-tag">TurtleBot 4</span>
-          </div>
+      <div class="feat-left">
+        <div class="feat-top">
+          <span class="feat-num">01</span>
+          <a class="feat-gh" href="https://github.com/Hp092/human-following-robot" target="_blank">View on GitHub ↗</a>
         </div>
-        <div class="proj-arrow">↗</div>
-      </a>
-
-      <!-- Demo strip -->
-      <div class="demo-strip">
-        <div class="demo-inner">
-          <div class="demo-phone">
-            <img
-              src="https://raw.githubusercontent.com/Hp092/human-following-robot/main/media/videos/demo.gif"
-              alt="TurtleBot 4 following a person in real time"
-            />
-          </div>
-          <div class="demo-text">
-            <div class="demo-label">Live Demo</div>
-            <p class="demo-caption">
-              TurtleBot 4 Lite detecting and following a person in real time using YOLOv8 and a custom ROS 2 control pipeline. Recorded on real hardware in an indoor lab environment.
-            </p>
-            <a class="demo-video-link" href="https://github.com/Hp092/human-following-robot/blob/main/media/videos/MR_PROJECTVIDEO.mp4" target="_blank">
-              Watch full video ↗
-            </a>
-          </div>
+        <div class="feat-title">Autonomous Human-Following Mobile Robot</div>
+        <p class="feat-desc">
+          Vision-based person-following robot built on a TurtleBot 4 Lite running ROS 2 Jazzy.
+          Uses YOLOv8 for real-time detection, a custom 4-node pipeline with Kalman-filtered
+          tracking, proportional follow control, and a hardware safety supervisor.
+          Maintains ~1 m following distance with obstacle avoidance on real hardware.
+        </p>
+        <div class="feat-tags">
+          <span class="feat-tag">Python</span>
+          <span class="feat-tag">ROS 2</span>
+          <span class="feat-tag">YOLOv8</span>
+          <span class="feat-tag">OpenCV</span>
+          <span class="feat-tag">Kalman Filter</span>
+          <span class="feat-tag">TurtleBot 4</span>
+        </div>
+        <div class="feat-links">
+          <a class="feat-link-primary" href="https://github.com/Hp092/human-following-robot/blob/main/media/videos/MR_PROJECTVIDEO.mp4" target="_blank">Watch demo ↗</a>
+          <a class="feat-link-secondary" href="https://github.com/Hp092/human-following-robot" target="_blank">Source code</a>
         </div>
       </div>
 
+      <div class="feat-right">
+        <div class="phone-frame">
+          <img
+            src="https://raw.githubusercontent.com/Hp092/human-following-robot/main/media/videos/demo.gif"
+            alt="TurtleBot 4 following a person in real time"
+          />
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Placeholder rows -->
+    <div class="projects">
       <div class="project-row placeholder">
         <div class="proj-num">02</div>
         <div class="proj-body">
@@ -488,8 +526,8 @@ footer {
           <div class="proj-desc">Coming soon.</div>
         </div>
       </div>
-
     </div>
+
   </div>
 
   <!-- SKILLS -->
