@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Harsh Padmalwar</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet"/>
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --cream:   #F4F1EC;
+  --ink:     #111010;
+  --mid:     #6b6560;
+  --rule:    #D8D3CC;
+  --accent:  #C44B1B;
+  --hover:   #F0EBE3;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'Syne', sans-serif;
+  font-weight: 400;
+  line-height: 1;
+  min-height: 100vh;
+}
+
+.wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+/* ── TOP BAR ── */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 0 24px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.topbar-left {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--mid);
+}
+
+.topbar-right {
+  display: flex;
+  gap: 32px;
+}
+
+.topbar-right a {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--mid);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.topbar-right a:hover { color: var(--ink); }
+
+/* ── HERO ── */
+.hero {
+  padding: 64px 0 48px;
+  border-bottom: 1px solid var(--rule);
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  align-items: end;
+  gap: 40px;
+}
+
+.hero-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: clamp(64px, 9vw, 112px);
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.hero-name em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.hero-right {
+  padding-bottom: 6px;
+}
+
+.hero-role {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+
+.hero-bio {
+  font-size: 13px;
+  color: var(--mid);
+  line-height: 1.75;
+  font-weight: 400;
+}
+
+/* ── SECTION LABEL ── */
+.sec-label {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 32px 0 0;
+  margin-bottom: 0;
+}
+
+.sec-label-text {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--mid);
+  white-space: nowrap;
+}
+
+.sec-label-line {
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+
+/* ── PROJECT ROWS ── */
+.projects { margin-top: 0; }
+
+.project-row {
+  display: grid;
+  grid-template-columns: 56px 1fr auto;
+  align-items: center;
+  gap: 0 32px;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--rule);
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.2s;
+  border-radius: 0;
+  cursor: pointer;
+  position: relative;
+}
+
+a.project-row:hover {
+  background: var(--hover);
+  margin: 0 -24px;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+a.project-row:hover .proj-arrow { opacity: 1; transform: translate(0,0); }
+a.project-row:hover .proj-num   { color: var(--accent); }
+
+.project-row.placeholder {
+  opacity: 0.35;
+  pointer-events: none;
+  cursor: default;
+}
+
+.proj-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 300;
+  color: var(--rule);
+  line-height: 1;
+  transition: color 0.2s;
+  user-select: none;
+}
+
+.proj-body { display: flex; flex-direction: column; gap: 10px; }
+
+.proj-title {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--ink);
+}
+
+.proj-meta {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.proj-desc {
+  font-size: 12px;
+  color: var(--mid);
+  font-weight: 400;
+  line-height: 1.6;
+  max-width: 540px;
+}
+
+.proj-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.proj-tag {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--mid);
+  padding: 3px 8px;
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+}
+
+.proj-arrow {
+  font-size: 20px;
+  color: var(--accent);
+  opacity: 0;
+  transform: translate(-4px, 4px);
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+/* ── DEMO STRIP ── */
+.demo-strip {
+  border-bottom: 1px solid var(--rule);
+  background: var(--hover);
+  margin: 0 -48px;
+  padding: 28px 48px 32px;
+}
+
+.demo-inner { display: flex; flex-direction: column; gap: 16px; }
+
+.demo-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--mid);
+}
+
+.demo-media {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.demo-gif {
+  height: 200px;
+  width: auto;
+  border-radius: 6px;
+  border: 1px solid var(--rule);
+  object-fit: cover;
+  display: block;
+}
+
+.demo-video-link {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  text-decoration: none;
+  transition: opacity 0.15s;
+}
+
+.demo-video-link:hover { opacity: 0.7; }
+
+@media (max-width: 640px) {
+  .demo-strip { margin: 0 -24px; padding: 20px 24px 24px; }
+  .demo-gif { height: 140px; }
+}
+
+
+.skills-section { padding: 32px 0 0; }
+
+.skills-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--rule);
+  margin-top: 0;
+}
+
+.skill-col {
+  padding: 28px 0;
+  border-right: 1px solid var(--rule);
+}
+
+.skill-col:last-child { border-right: none; padding-left: 32px; }
+.skill-col:first-child { padding-right: 32px; }
+.skill-col:nth-child(2) { padding-left: 32px; padding-right: 32px; }
+
+.skill-col-title {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 18px;
+}
+
+.skill-items {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.skill-item {
+  font-size: 13px;
+  color: var(--mid);
+  font-weight: 400;
+  line-height: 1;
+}
+
+/* ── FOOTER ── */
+footer {
+  border-top: 1px solid var(--rule);
+  margin-top: 48px;
+  padding: 24px 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 14px;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--mid);
+}
+
+.footer-links {
+  display: flex;
+  gap: 28px;
+}
+
+.footer-links a {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--mid);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.footer-links a:hover { color: var(--ink); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 640px) {
+  .wrap { padding: 0 24px; }
+  .hero { grid-template-columns: 1fr; }
+  .project-row { grid-template-columns: 40px 1fr 24px; gap: 0 16px; }
+  .skills-row { grid-template-columns: 1fr; }
+  .skill-col { border-right: none; padding-left: 0 !important; padding-right: 0 !important; border-top: 1px solid var(--rule); }
+  .skill-col:first-child { border-top: none; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <span class="topbar-left">Portfolio — 2025</span>
+    <div class="topbar-right">
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="mailto:your@email.com">Contact</a>
+      <a href="https://linkedin.com/in/yourname" target="_blank">LinkedIn</a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-name">
+      Harsh<br><em>Padmalwar</em>
+    </div>
+    <div class="hero-right">
+      <div class="hero-role">Robotics Engineer</div>
+      <p class="hero-bio">
+        Focused on autonomous systems, computer vision, and embedded software.
+        I build things that sense, decide, and move in the physical world.
+      </p>
+    </div>
+  </div>
+
+  <!-- PROJECTS -->
+  <div id="projects">
+    <div class="sec-label">
+      <span class="sec-label-text">Projects</span>
+      <div class="sec-label-line"></div>
+    </div>
+
+    <div class="projects">
+
+      <a class="project-row" href="https://github.com/Hp092/human-following-robot" target="_blank">
+        <div class="proj-num">01</div>
+        <div class="proj-body">
+          <div class="proj-title">Autonomous Human-Following Mobile Robot</div>
+          <div class="proj-desc">Vision-based person-following robot on a TurtleBot 4 Lite. Uses YOLOv8 for real-time detection, a custom 4-node ROS 2 pipeline, Kalman filtering, and a safety supervisor. Maintains ~1 m following distance with obstacle avoidance.</div>
+          <div class="proj-tags">
+            <span class="proj-tag">Python</span>
+            <span class="proj-tag">ROS 2</span>
+            <span class="proj-tag">YOLOv8</span>
+            <span class="proj-tag">OpenCV</span>
+            <span class="proj-tag">TurtleBot 4</span>
+          </div>
+        </div>
+        <div class="proj-arrow">↗</div>
+      </a>
+
+      <!-- Demo strip -->
+      <div class="demo-strip">
+        <div class="demo-inner">
+          <div class="demo-label">Demo</div>
+          <div class="demo-media">
+            <img
+              src="https://raw.githubusercontent.com/Hp092/human-following-robot/main/media/videos/demo.gif"
+              alt="TurtleBot 4 following a person in real time"
+              class="demo-gif"
+            />
+            <img
+              src="https://raw.githubusercontent.com/Hp092/human-following-robot/main/media/videos/YOLO.gif"
+              alt="YOLO person detection overlay"
+              class="demo-gif"
+            />
+          </div>
+          <a class="demo-video-link" href="https://github.com/Hp092/human-following-robot/blob/main/media/videos/MR_PROJECTVIDEO.mp4" target="_blank">
+            Watch full video ↗
+          </a>
+        </div>
+      </div>
+
+      <div class="project-row placeholder">
+        <div class="proj-num">02</div>
+        <div class="proj-body">
+          <div class="proj-title">Next project</div>
+          <div class="proj-desc">Coming soon.</div>
+        </div>
+      </div>
+
+      <div class="project-row placeholder">
+        <div class="proj-num">03</div>
+        <div class="proj-body">
+          <div class="proj-title">Next project</div>
+          <div class="proj-desc">Coming soon.</div>
+        </div>
+      </div>
+
+      <div class="project-row placeholder">
+        <div class="proj-num">04</div>
+        <div class="proj-body">
+          <div class="proj-title">Next project</div>
+          <div class="proj-desc">Coming soon.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SKILLS -->
+  <div id="skills" class="skills-section">
+    <div class="sec-label">
+      <span class="sec-label-text">Skills</span>
+      <div class="sec-label-line"></div>
+    </div>
+
+    <div class="skills-row">
+      <div class="skill-col">
+        <div class="skill-col-title">Languages</div>
+        <div class="skill-items">
+          <span class="skill-item">Python</span>
+          <span class="skill-item">C / C++</span>
+          <span class="skill-item">Add yours</span>
+        </div>
+      </div>
+      <div class="skill-col">
+        <div class="skill-col-title">Robotics</div>
+        <div class="skill-items">
+          <span class="skill-item">ROS / ROS2</span>
+          <span class="skill-item">OpenCV</span>
+          <span class="skill-item">Sensor Fusion</span>
+        </div>
+      </div>
+      <div class="skill-col">
+        <div class="skill-col-title">Tools</div>
+        <div class="skill-items">
+          <span class="skill-item">Git / GitHub</span>
+          <span class="skill-item">Linux</span>
+          <span class="skill-item">Add yours</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-name">Harsh Padmalwar</span>
+    <div class="footer-links">
+      <a href="mailto:your@email.com">Email</a>
+      <a href="https://github.com/Hp092" target="_blank">GitHub</a>
+      <a href="https://linkedin.com/in/yourname" target="_blank">LinkedIn</a>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
