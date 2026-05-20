@@ -83,7 +83,7 @@ a.pc:hover .pc-media img { transform: scale(1.04); }
 .pc-media.landscape { aspect-ratio: 16 / 9; }
 
 /* ── CARD BODY ── */
-.pc-body { padding: 24px 28px 32px; display: flex; flex-direction: column; flex: 1; }
+.pc-body { padding: 24px 28px 28px; display: flex; flex-direction: column; }
 
 /* wide card body is 2-col internally */
 .pc.wide .pc-body {
@@ -100,7 +100,7 @@ a.pc:hover .pc-media img { transform: scale(1.04); }
 .pc-gh { font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid); transition: color 0.15s; }
 a.pc:hover .pc-gh { color: var(--accent); }
 .pc-title { font-size: 18px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; color: var(--ink); margin-bottom: 12px; }
-.pc-desc { font-size: 12px; color: var(--mid); line-height: 1.7; margin-bottom: 20px; flex: 1; }
+.pc-desc { font-size: 12px; color: var(--mid); line-height: 1.7; margin-bottom: 20px; }
 .pc-tags { display: flex; gap: 6px; flex-wrap: wrap; }
 .pc-tag { font-size: 9px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid); padding: 3px 8px; border: 1px solid var(--rule); border-radius: 2px; }
 
@@ -179,9 +179,6 @@ footer { border-top: 1px solid var(--rule); margin-top: 48px; padding: 24px 0 40
 
       <!-- 01 — portrait -->
       <a class="pc reveal" href="https://github.com/Hp092/human-following-robot" target="_blank">
-        <div class="pc-media portrait">
-          <img src="https://raw.githubusercontent.com/Hp092/human-following-robot/main/media/videos/demo.gif" alt="TurtleBot 4 following a person"/>
-        </div>
         <div class="pc-body">
           <div class="pc-meta">
             <span class="pc-num">01</span>
@@ -198,13 +195,13 @@ footer { border-top: 1px solid var(--rule); margin-top: 48px; padding: 24px 0 40
             <span class="pc-tag">TurtleBot 4</span>
           </div>
         </div>
+        <div class="pc-media portrait">
+          <img src="https://raw.githubusercontent.com/Hp092/human-following-robot/main/media/videos/demo.gif" alt="TurtleBot 4 following a person"/>
+        </div>
       </a>
 
       <!-- 02 — portrait -->
       <a class="pc reveal delay" href="https://github.com/Hp092/minidrone-autonomous-landing" target="_blank">
-        <div class="pc-media portrait">
-          <img src="https://raw.githubusercontent.com/Hp092/minidrone-autonomous-landing/main/media/demo.gif" alt="Minidrone landing on moving target"/>
-        </div>
         <div class="pc-body">
           <div class="pc-meta">
             <span class="pc-num">02</span>
@@ -221,13 +218,13 @@ footer { border-top: 1px solid var(--rule); margin-top: 48px; padding: 24px 0 40
             <span class="pc-tag">Parrot Mambo</span>
           </div>
         </div>
+        <div class="pc-media portrait">
+          <img src="https://raw.githubusercontent.com/Hp092/minidrone-autonomous-landing/main/media/demo.gif" alt="Minidrone landing on moving target"/>
+        </div>
       </a>
 
       <!-- 03 — landscape, full width -->
       <a class="pc wide reveal" href="https://github.com/Hp092/robot-arm-maze-solver" target="_blank">
-        <div class="pc-media landscape">
-          <img src="https://raw.githubusercontent.com/Hp092/robot-arm-maze-solver/main/media/simulation.gif" alt="Robot arm tracing maze path"/>
-        </div>
         <div class="pc-body">
           <div class="pc-body-left">
             <div class="pc-meta">
@@ -247,6 +244,9 @@ footer { border-top: 1px solid var(--rule); margin-top: 48px; padding: 24px 0 40
               <span class="pc-tag">Pro600</span>
             </div>
           </div>
+        </div>
+        <div class="pc-media landscape">
+          <img src="https://raw.githubusercontent.com/Hp092/robot-arm-maze-solver/main/media/simulation.gif" alt="Robot arm tracing maze path"/>
         </div>
       </a>
 
