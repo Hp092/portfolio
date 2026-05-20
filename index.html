@@ -196,6 +196,13 @@ body {
   display: block;
 }
 
+/* ── FEATURED — LANDSCAPE (stacked) ── */
+.project-featured.landscape {
+  grid-template-columns: 1fr;
+}
+.project-featured.landscape .feat-right {
+  justify-content: flex-start;
+}
 /* ── PLAIN PROJECT ROWS ── */
 .projects { margin-top: 0; }
 .project-row {
@@ -423,13 +430,36 @@ footer {
         />
       </div>
     </div>
-      <div class="project-row placeholder">
-        <div class="proj-num">03</div>
-        <div class="proj-body">
-          <div class="proj-title">Next project</div>
-          <div class="proj-desc">Coming soon.</div>
+    <!-- Project 03 — featured landscape -->
+    <div class="project-featured landscape">
+      <div class="feat-left">
+        <div class="feat-top">
+          <span class="feat-num">03</span>
+          <a class="feat-gh" href="https://github.com/Hp092/robot-arm-maze-solver" target="_blank">View on GitHub ↗</a>
+        </div>
+        <div class="feat-title">Robot Arm Maze Solver</div>
+        <p class="feat-desc">
+          End-to-end system that photographs a physical maze, solves it with A*,
+          and commands a 6-DOF Pro600 robot arm to trace the solution path.
+          Python handles vision and pathfinding; MATLAB runs inverse kinematics
+          and trajectory generation; joint angles are sent over TCP to the hardware.
+        </p>
+        <div class="feat-tags">
+          <span class="feat-tag">Python</span>
+          <span class="feat-tag">MATLAB</span>
+          <span class="feat-tag">A* Pathfinding</span>
+          <span class="feat-tag">Inverse Kinematics</span>
+          <span class="feat-tag">OpenCV</span>
+          <span class="feat-tag">Pro600</span>
         </div>
       </div>
+      <div class="feat-right">
+        <img
+          src="https://raw.githubusercontent.com/Hp092/robot-arm-maze-solver/main/media/simulation.gif"
+          alt="MATLAB simulation of robot arm tracing maze path"
+        />
+      </div>
+    </div>
       <div class="project-row placeholder">
         <div class="proj-num">04</div>
         <div class="proj-body">
