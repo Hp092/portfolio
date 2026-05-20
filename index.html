@@ -392,13 +392,37 @@ footer {
 
     <!-- Placeholder rows -->
     <div class="projects">
-      <div class="project-row placeholder">
-        <div class="proj-num">02</div>
-        <div class="proj-body">
-          <div class="proj-title">Next project</div>
-          <div class="proj-desc">Coming soon.</div>
+    <!-- Project 02 — featured -->
+    <div class="project-featured">
+      <div class="feat-left">
+        <div class="feat-top">
+          <span class="feat-num">02</span>
+          <a class="feat-gh" href="https://github.com/Hp092/minidrone-autonomous-landing" target="_blank">View on GitHub ↗</a>
+        </div>
+        <div class="feat-title">Minidrone Autonomous Landing</div>
+        <p class="feat-desc">
+          Parrot Mambo minidrone that detects a color-marked moving target using its
+          downward camera and autonomously lands on it. A 9-zone binary mask drives a
+          Stateflow state machine for real-time path following and descent.
+          Designed in MATLAB/Simulink with C code generated and deployed directly on hardware.
+        </p>
+        <div class="feat-tags">
+          <span class="feat-tag">MATLAB</span>
+          <span class="feat-tag">Simulink</span>
+          <span class="feat-tag">Stateflow</span>
+          <span class="feat-tag">Computer Vision</span>
+          <span class="feat-tag">PID Control</span>
+          <span class="feat-tag">Parrot Mambo</span>
         </div>
       </div>
+
+      <div class="feat-right">
+        <img
+          src="https://raw.githubusercontent.com/Hp092/minidrone-autonomous-landing/main/media/demo.gif"
+          alt="Minidrone autonomously landing on moving color target"
+        />
+      </div>
+    </div>
       <div class="project-row placeholder">
         <div class="proj-num">03</div>
         <div class="proj-body">
