@@ -14,8 +14,6 @@
   --rule:    #D8D3CC;
   --accent:  #C44B1B;
   --hover:   #F0EBE3;
-  --page-max: 1080px;
-  --page-pad: 48px;
 }
 html { scroll-behavior: smooth; }
 body {
@@ -27,9 +25,9 @@ body {
   min-height: 100vh;
 }
 .wrap {
-  max-width: var(--page-max);
+  max-width: 1080px;
   margin: 0 auto;
-  padding: 0 var(--page-pad);
+  padding: 0 48px;
 }
 /* ── TOP BAR ── */
 .topbar {
@@ -106,100 +104,104 @@ body {
   white-space: nowrap;
 }
 .sec-label-line { flex: 1; height: 1px; background: var(--rule); }
-
-/* ── FULLBLEED PROJECT SECTIONS ── */
-#projects {
-  border-top: 1px solid var(--rule);
-  margin-top: 32px;
-}
-.ps {
-  height: 100vh;
-  min-height: 560px;
+/* ── PROJECT GRID ── */
+.project-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  border-bottom: 1px solid var(--rule);
-  position: relative;
-  overflow: hidden;
+  gap: 2px;
+  margin-top: 32px;
+  border: 1px solid var(--rule);
 }
-/* left text panel — padding aligns text with the rest of the page */
-.ps-left {
+.pc {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding-top: 60px;
-  padding-bottom: 60px;
-  padding-right: 56px;
-  padding-left: max(var(--page-pad), calc((100vw - var(--page-max)) / 2 + var(--page-pad)));
-}
-.ps-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 13px;
-  font-weight: 300;
-  color: var(--mid);
-  letter-spacing: 0.1em;
-  margin-bottom: 24px;
-}
-.ps-title {
-  font-size: 28px;
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1.15;
-  color: var(--ink);
-  margin-bottom: 16px;
-}
-.ps-desc {
-  font-size: 13px;
-  color: var(--mid);
-  line-height: 1.75;
-  font-weight: 400;
-  margin-bottom: 24px;
-  max-width: 400px;
-}
-.ps-tags {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin-bottom: 32px;
-}
-.ps-tag {
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--mid);
-  padding: 4px 10px;
-  border: 1px solid var(--rule);
-  border-radius: 2px;
-}
-.ps-gh {
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--mid);
+  background: var(--cream);
   text-decoration: none;
-  transition: color 0.15s;
-  align-self: flex-start;
+  color: inherit;
+  transition: background 0.2s;
+  border: 1px solid var(--rule);
+  margin: -1px;
 }
-.ps-gh:hover { color: var(--accent); }
-/* right media panel — fills full height edge-to-edge */
-.ps-right {
+a.pc:hover { background: var(--hover); }
+a.pc:hover .pc-thumb img { transform: scale(1.04); }
+a.pc:hover .pc-num { color: var(--accent); }
+.pc.placeholder { opacity: 0.3; pointer-events: none; }
+/* thumbnail — locked 16:9 */
+.pc-thumb {
+  width: 100%;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
-  position: relative;
+  background: var(--rule);
 }
-.ps-right img {
+.pc-thumb img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
   display: block;
-  transition: transform 0.8s ease;
+  transition: transform 0.6s ease;
 }
-.ps:hover .ps-right img { transform: scale(1.03); }
-/* placeholder */
-.ps-placeholder { opacity: 0.3; pointer-events: none; }
-.ps-placeholder .ps-right { background: var(--rule); }
-
+/* card body */
+.pc-body {
+  padding: 24px 28px 28px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.pc-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+.pc-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--mid);
+  letter-spacing: 0.1em;
+  transition: color 0.2s;
+}
+.pc-gh {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--mid);
+  transition: color 0.15s;
+}
+a.pc:hover .pc-gh { color: var(--accent); }
+.pc-title {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+.pc-desc {
+  font-size: 12px;
+  color: var(--mid);
+  line-height: 1.7;
+  font-weight: 400;
+  margin-bottom: 20px;
+  flex: 1;
+}
+.pc-tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.pc-tag {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--mid);
+  padding: 3px 8px;
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+}
 /* ── SKILLS ── */
 .skills-section { padding: 32px 0 0; }
 .skills-row {
@@ -249,14 +251,10 @@ footer {
 }
 .footer-links a:hover { color: var(--ink); }
 /* ── RESPONSIVE ── */
-@media (max-width: 768px) {
-  .ps { grid-template-columns: 1fr; height: auto; }
-  .ps-right { height: 50vw; min-height: 240px; }
-  .ps-left { padding-right: var(--page-pad); }
-}
 @media (max-width: 640px) {
-  :root { --page-pad: 24px; }
+  .wrap { padding: 0 24px; }
   .hero { grid-template-columns: 1fr; }
+  .project-grid { grid-template-columns: 1fr; }
   .skills-row { grid-template-columns: 1fr; }
   .skill-col { border-right: none; padding-left: 0 !important; padding-right: 0 !important; border-top: 1px solid var(--rule); }
   .skill-col:first-child { border-top: none; }
@@ -264,8 +262,8 @@ footer {
 </style>
 </head>
 <body>
-
 <div class="wrap">
+
   <!-- TOP BAR -->
   <div class="topbar">
     <span class="topbar-left">Portfolio — 2025</span>
@@ -290,110 +288,113 @@ footer {
       </p>
     </div>
   </div>
-</div>
 
-<!-- FULLBLEED PROJECTS -->
-<div id="projects">
+  <!-- PROJECTS -->
+  <div id="projects">
+    <div class="sec-label">
+      <span class="sec-label-text">Projects</span>
+      <div class="sec-label-line"></div>
+    </div>
 
-  <!-- 01 -->
-  <div class="ps">
-    <div class="ps-left">
-      <div class="ps-num">01</div>
-      <div class="ps-title">Autonomous Human-Following Mobile Robot</div>
-      <p class="ps-desc">
-        Vision-based person-following robot on a TurtleBot 4 Lite running ROS 2 Jazzy.
-        YOLOv8 detection, Kalman-filtered tracking, proportional follow control,
-        and a hardware safety supervisor. Maintains ~1 m distance on real hardware.
-      </p>
-      <div class="ps-tags">
-        <span class="ps-tag">Python</span>
-        <span class="ps-tag">ROS 2</span>
-        <span class="ps-tag">YOLOv8</span>
-        <span class="ps-tag">OpenCV</span>
-        <span class="ps-tag">Kalman Filter</span>
-        <span class="ps-tag">TurtleBot 4</span>
+    <div class="project-grid">
+
+      <!-- 01 -->
+      <a class="pc" href="https://github.com/Hp092/human-following-robot" target="_blank">
+        <div class="pc-thumb">
+          <img src="https://raw.githubusercontent.com/Hp092/human-following-robot/main/media/videos/demo.gif"
+               alt="TurtleBot 4 following a person"/>
+        </div>
+        <div class="pc-body">
+          <div class="pc-top">
+            <span class="pc-num">01</span>
+            <span class="pc-gh">View on GitHub ↗</span>
+          </div>
+          <div class="pc-title">Autonomous Human-Following Mobile Robot</div>
+          <p class="pc-desc">
+            Vision-based person-following robot on a TurtleBot 4 Lite running ROS 2 Jazzy.
+            YOLOv8 detection, Kalman-filtered tracking, proportional follow control,
+            and a hardware safety supervisor.
+          </p>
+          <div class="pc-tags">
+            <span class="pc-tag">Python</span>
+            <span class="pc-tag">ROS 2</span>
+            <span class="pc-tag">YOLOv8</span>
+            <span class="pc-tag">OpenCV</span>
+            <span class="pc-tag">Kalman Filter</span>
+            <span class="pc-tag">TurtleBot 4</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 02 -->
+      <a class="pc" href="https://github.com/Hp092/minidrone-autonomous-landing" target="_blank">
+        <div class="pc-thumb">
+          <img src="https://raw.githubusercontent.com/Hp092/minidrone-autonomous-landing/main/media/demo.gif"
+               alt="Minidrone landing on moving target"/>
+        </div>
+        <div class="pc-body">
+          <div class="pc-top">
+            <span class="pc-num">02</span>
+            <span class="pc-gh">View on GitHub ↗</span>
+          </div>
+          <div class="pc-title">Minidrone Autonomous Landing</div>
+          <p class="pc-desc">
+            Parrot Mambo minidrone that detects a color-marked moving target and
+            autonomously lands on it. A 9-zone binary mask drives a Stateflow
+            state machine for path following and descent.
+          </p>
+          <div class="pc-tags">
+            <span class="pc-tag">MATLAB</span>
+            <span class="pc-tag">Simulink</span>
+            <span class="pc-tag">Stateflow</span>
+            <span class="pc-tag">Computer Vision</span>
+            <span class="pc-tag">PID Control</span>
+            <span class="pc-tag">Parrot Mambo</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 03 -->
+      <a class="pc" href="https://github.com/Hp092/robot-arm-maze-solver" target="_blank">
+        <div class="pc-thumb">
+          <img src="https://raw.githubusercontent.com/Hp092/robot-arm-maze-solver/main/media/simulation.gif"
+               alt="Robot arm tracing maze path"/>
+        </div>
+        <div class="pc-body">
+          <div class="pc-top">
+            <span class="pc-num">03</span>
+            <span class="pc-gh">View on GitHub ↗</span>
+          </div>
+          <div class="pc-title">Robot Arm Maze Solver</div>
+          <p class="pc-desc">
+            End-to-end system that photographs a maze, solves it with A*, and commands
+            a 6-DOF Pro600 arm to trace the path. Python handles vision; MATLAB runs
+            inverse kinematics and trajectory generation.
+          </p>
+          <div class="pc-tags">
+            <span class="pc-tag">Python</span>
+            <span class="pc-tag">MATLAB</span>
+            <span class="pc-tag">A* Pathfinding</span>
+            <span class="pc-tag">Inverse Kinematics</span>
+            <span class="pc-tag">OpenCV</span>
+            <span class="pc-tag">Pro600</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 04 placeholder -->
+      <div class="pc placeholder">
+        <div class="pc-thumb"></div>
+        <div class="pc-body">
+          <div class="pc-top"><span class="pc-num">04</span></div>
+          <div class="pc-title">Next project</div>
+          <p class="pc-desc">Coming soon.</p>
+        </div>
       </div>
-      <a class="ps-gh" href="https://github.com/Hp092/human-following-robot" target="_blank">View on GitHub ↗</a>
-    </div>
-    <div class="ps-right">
-      <img
-        src="https://raw.githubusercontent.com/Hp092/human-following-robot/main/media/videos/demo.gif"
-        alt="TurtleBot 4 following a person in real time"
-      />
+
     </div>
   </div>
 
-  <!-- 02 -->
-  <div class="ps">
-    <div class="ps-left">
-      <div class="ps-num">02</div>
-      <div class="ps-title">Minidrone Autonomous Landing</div>
-      <p class="ps-desc">
-        Parrot Mambo minidrone that detects a color-marked moving target with its
-        downward camera and autonomously lands on it. A 9-zone binary mask drives
-        a Stateflow state machine for path following and descent.
-        Designed in MATLAB/Simulink with C code deployed on hardware.
-      </p>
-      <div class="ps-tags">
-        <span class="ps-tag">MATLAB</span>
-        <span class="ps-tag">Simulink</span>
-        <span class="ps-tag">Stateflow</span>
-        <span class="ps-tag">Computer Vision</span>
-        <span class="ps-tag">PID Control</span>
-        <span class="ps-tag">Parrot Mambo</span>
-      </div>
-      <a class="ps-gh" href="https://github.com/Hp092/minidrone-autonomous-landing" target="_blank">View on GitHub ↗</a>
-    </div>
-    <div class="ps-right">
-      <img
-        src="https://raw.githubusercontent.com/Hp092/minidrone-autonomous-landing/main/media/demo.gif"
-        alt="Minidrone autonomously landing on moving color target"
-      />
-    </div>
-  </div>
-
-  <!-- 03 -->
-  <div class="ps">
-    <div class="ps-left">
-      <div class="ps-num">03</div>
-      <div class="ps-title">Robot Arm Maze Solver</div>
-      <p class="ps-desc">
-        End-to-end system that photographs a physical maze, solves it with A*,
-        and commands a 6-DOF Pro600 arm to trace the solution path.
-        Python handles vision and pathfinding; MATLAB runs inverse kinematics
-        and trajectory generation; joint angles are sent over TCP to hardware.
-      </p>
-      <div class="ps-tags">
-        <span class="ps-tag">Python</span>
-        <span class="ps-tag">MATLAB</span>
-        <span class="ps-tag">A* Pathfinding</span>
-        <span class="ps-tag">Inverse Kinematics</span>
-        <span class="ps-tag">OpenCV</span>
-        <span class="ps-tag">Pro600</span>
-      </div>
-      <a class="ps-gh" href="https://github.com/Hp092/robot-arm-maze-solver" target="_blank">View on GitHub ↗</a>
-    </div>
-    <div class="ps-right">
-      <img
-        src="https://raw.githubusercontent.com/Hp092/robot-arm-maze-solver/main/media/simulation.gif"
-        alt="MATLAB simulation of robot arm tracing maze path"
-      />
-    </div>
-  </div>
-
-  <!-- 04 placeholder -->
-  <div class="ps ps-placeholder">
-    <div class="ps-left">
-      <div class="ps-num">04</div>
-      <div class="ps-title">Next project</div>
-      <p class="ps-desc">Coming soon.</p>
-    </div>
-    <div class="ps-right"></div>
-  </div>
-
-</div>
-
-<div class="wrap">
   <!-- SKILLS -->
   <div id="skills" class="skills-section">
     <div class="sec-label">
@@ -437,7 +438,7 @@ footer {
       <a href="https://linkedin.com/in/yourname" target="_blank">LinkedIn</a>
     </div>
   </footer>
-</div>
 
+</div>
 </body>
 </html>
