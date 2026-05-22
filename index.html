@@ -35,7 +35,7 @@ body { background: var(--cream); color: var(--ink); font-family: 'Syne', sans-se
 
 /* ── SECTION LABEL ── */
 .sec-label { display: flex; align-items: center; gap: 16px; padding: 40px 0 0; }
-.sec-label-text { font-size: 10px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--mid); white-space: nowrap; }
+.sec-label-text { font-size: 15px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--mid); white-space: nowrap; }
 .sec-label-line { flex: 1; height: 1px; background: var(--rule); }
 
 /* ── ASYMMETRIC PROJECT GRID ── */
@@ -56,7 +56,9 @@ body { background: var(--cream); color: var(--ink); font-family: 'Syne', sans-se
   text-decoration: none;
   color: inherit;
   overflow: hidden;
+  position: relative;
 }
+.pc.wide .pc-gh { position: absolute; top: 24px; right: 28px; }
 a.pc { cursor: pointer; }
 a.pc:hover .pc-media img { transform: scale(1.04); }
 
@@ -115,11 +117,10 @@ a.pc:hover .pc-gh { color: var(--accent); }
 
 /* ── SKILLS ── */
 .skills-section { padding: 40px 0 0; }
-.skills-row { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--rule); }
-.skill-col { padding: 28px 0; border-right: 1px solid var(--rule); }
-.skill-col:last-child  { border-right: none; padding-left: 32px; }
-.skill-col:first-child { padding-right: 32px; }
-.skill-col:nth-child(2){ padding-left: 32px; padding-right: 32px; }
+.skills-row { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--rule); }
+.skill-col { padding: 28px 0; border-right: 1px solid var(--rule); padding-left: 24px; padding-right: 24px; }
+.skill-col:first-child { padding-left: 0; }
+.skill-col:last-child  { border-right: none; }
 .skill-col-title { font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 18px; }
 .skill-items { display: flex; flex-direction: column; gap: 10px; }
 .skill-item { font-size: 13px; color: var(--mid); }
@@ -139,9 +140,9 @@ footer { border-top: 1px solid var(--rule); margin-top: 48px; padding: 24px 0 40
   .pc.wide { grid-column: span 1; }
   .pc.wide .pc-body { grid-template-columns: 1fr; }
   .pc-media.portrait { aspect-ratio: 4 / 3; }
-  .skills-row { grid-template-columns: 1fr; }
+  .skills-row { grid-template-columns: 1fr 1fr; }
   .skill-col { border-right: none; padding-left: 0 !important; padding-right: 0 !important; border-top: 1px solid var(--rule); }
-  .skill-col:first-child { border-top: none; }
+  .skill-col:first-child, .skill-col:nth-child(2) { border-top: none; }
 }
 </style>
 </head>
@@ -288,27 +289,48 @@ footer { border-top: 1px solid var(--rule); margin-top: 48px; padding: 24px 0 40
     </div>
     <div class="skills-row">
       <div class="skill-col">
-        <div class="skill-col-title">Languages</div>
+        <div class="skill-col-title">Robotics & Systems</div>
         <div class="skill-items">
-          <span class="skill-item">Python</span>
-          <span class="skill-item">C / C++</span>
+          <span class="skill-item">Robotic System Architecture</span>
+          <span class="skill-item">SLAM (RTAB-Map)</span>
+          <span class="skill-item">Sensor Fusion (LiDAR/IMU)</span>
+          <span class="skill-item">Robot Kinematics & Dynamics</span>
+          <span class="skill-item">Multi-Robot Systems</span>
+          <span class="skill-item">Potential Fields</span>
+          <span class="skill-item">Digital Twin (Gazebo)</span>
+        </div>
+      </div>
+      <div class="skill-col">
+        <div class="skill-col-title">Embedded & Control</div>
+        <div class="skill-items">
+          <span class="skill-item">Embedded C</span>
+          <span class="skill-item">PID Control</span>
+          <span class="skill-item">PWM Motor Drives</span>
+          <span class="skill-item">Closed-Loop Motor Control</span>
+          <span class="skill-item">MATLAB/Simulink Modeling</span>
+          <span class="skill-item">PLC Programming</span>
+        </div>
+      </div>
+      <div class="skill-col">
+        <div class="skill-col-title">Industrial & Comms</div>
+        <div class="skill-items">
+          <span class="skill-item">HMI/SCADA Control Systems</span>
+          <span class="skill-item">UART</span>
+          <span class="skill-item">I2C</span>
+          <span class="skill-item">SPI</span>
+          <span class="skill-item">CAN</span>
+        </div>
+      </div>
+      <div class="skill-col">
+        <div class="skill-col-title">Software & Tools</div>
+        <div class="skill-items">
+          <span class="skill-item">ROS 2</span>
+          <span class="skill-item">Gazebo Ignition</span>
           <span class="skill-item">MATLAB</span>
-        </div>
-      </div>
-      <div class="skill-col">
-        <div class="skill-col-title">Robotics</div>
-        <div class="skill-items">
-          <span class="skill-item">ROS / ROS 2</span>
+          <span class="skill-item">Python</span>
           <span class="skill-item">OpenCV</span>
-          <span class="skill-item">Sensor Fusion</span>
-        </div>
-      </div>
-      <div class="skill-col">
-        <div class="skill-col-title">Tools</div>
-        <div class="skill-items">
-          <span class="skill-item">Git / GitHub</span>
-          <span class="skill-item">Linux</span>
-          <span class="skill-item">Simulink</span>
+          <span class="skill-item">SolidWorks</span>
+          <span class="skill-item">Arduino</span>
         </div>
       </div>
     </div>
